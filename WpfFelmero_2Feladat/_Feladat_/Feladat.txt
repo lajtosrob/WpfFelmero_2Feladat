@@ -1,0 +1,33 @@
+a)
+Nevezze át az ablakot és eszközölje a minta szerint a következõ változásokat!
+- 5 DIU margó a listadoboz köré
+- 10 DIU margó a "Töröl" gomb alá és felé
+
+b)
+A vezérlõket állítsa be a következõk szerint:
+- A csúszka a [150,210] tartományból vehessen fel értéket! Alapértelmezett értéke 170
+- Minden vezérlõ aminek az értékét olvassa vagy amihez eseménykezelõt társít, kapjon az elnevezési konvenciónak megfelelõ nevet!
+
+c)
+Bõvítse a felületet a minta szerint!
+- Vegyen fel egy újabb elválasztó vonalat!
+- Vegyen fel egy új nyomógombot!
+
+Funkciók:
+d)
+A "Felvesz" gomb a minta szerint rögzíti a listadobozba az adatokat. A magasság értékét kerekítse egészre!
+
+e)
+A "Töröl" gomb törölje a kiválasztott nevet! Ha nincs kiválasztva, akkor a minta szerint figyelmeztessen!
+
+f)
+Törölje ki az egész listadoboz tartalmát!
+
+g)
+A "Kékre vált" gomb hatására változtassa világoskékre a listadoboz hátterét!
+
+h)
+Ha olyan nevet akar felvenni, ami már szerepel a listán, akkor figyelmeztetés után akadályozza ezt meg!
+
+i)
+Ha változik a lista elemeinek száma, akkor a piros cimke értéke is változzon!
