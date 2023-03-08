@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -41,23 +42,26 @@ namespace WpfFelmero_2Feladat
 
         private void btnFelvesz_Click(object sender, RoutedEventArgs e)
         {
-            if (txtVersenyzo.Text == "")
-            {
-                MessageBox.Show("Nem adott meg nevet!");
-            }
-            else if (lbNevezesek.Items.Contains(txtVersenyzo.Text))
-            {
-                MessageBox.Show("Ilyen névvel már szerepel adat.");
-            }
-            else
-            {
-            string ujsor = txtVersenyzo.Text + "(" + sliMagassag.Value + "cm)";
-            lbNevezesek.Items.Add(ujsor);
+                foreach (var item in lbNevezesek.Items)
+                {
+
+                    if (item.ToString().StartsWith(txtVersenyzo.Text))
+                    {
+                        MessageBox.Show("Már van ilyen nevű versenyző!");
+                        txtVersenyzo.Text = "";
+                        txtVersenyzo.Focus();
+                        return;
+                    }
+                }
+                string ujsor = txtVersenyzo.Text + "(" + sliMagassag.Value + "cm)";
+                lbNevezesek.Items.Add(ujsor);
+                txtVersenyzo.Text = "";
+                txtVersenyzo.Focus();
                 lblVersenyzokSzama.Content = lbNevezesek.Items.Count;
 
-            }
 
         }
+
 
         private void btnTorol_Click(object sender, RoutedEventArgs e)
         {
@@ -67,7 +71,7 @@ namespace WpfFelmero_2Feladat
             }
             else
             {
-            lbNevezesek.Items.RemoveAt(lbNevezesek.SelectedIndex);
+                lbNevezesek.Items.RemoveAt(lbNevezesek.SelectedIndex);
                 lblVersenyzokSzama.Content = lbNevezesek.Items.Count;
             }
 
@@ -87,7 +91,11 @@ namespace WpfFelmero_2Feladat
 
         private void btnKekreValt_Click(object sender, RoutedEventArgs e)
         {
-            //lbNevezesek.Background = Color.lightblue
+            // 1. verzió:
+            //lbNevezesek.Background = new SolidColorBrush(Colors.LightBlue);
+
+            // 2. verzió:
+            lbNevezesek.Background = Brushes.LightBlue;
         }
 
         //todo d) A "Felvesz" gomb a minta szerint rögzíti a listadobozba az adatokat. A magasság értékét kerekítse egészre!
